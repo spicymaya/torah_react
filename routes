@@ -1,0 +1,8 @@
+/speaker/:speaker
+/torah/shorts
+/speaker/:speaker/:category
+/torah/:name/:cid
+/:cats/:subcat
+/:cats
+/404
+/
