@@ -5,7 +5,7 @@ import { BrowserRouter as
   Link , 
   Switch
 } from "react-router-dom";
-import Books from './BooksComponent';
+import Categories from './CategoriesComponent';
 
 class App extends React.Component {
   render() {
@@ -15,13 +15,13 @@ class App extends React.Component {
 
           <div className="container">
             <ul>
-              <li><Link to="/books">Books</Link>
+              <li><Link to="/">Categories</Link>
               </li>
             </ul>
             <hr/>
 
           <Switch>
-            <Route path="/books" component={Books} />
+            <Route exact path="/" component={Categories} />
           </Switch>
 
 
