@@ -6,7 +6,13 @@ import { BrowserRouter as
   Switch,
   HashRouter
 } from "react-router-dom";
+<<<<<<< HEAD
 import Child from './CategoriesComponent';
+||||||| merged common ancestors
+import Books from './BooksComponent';
+=======
+import Categories from './CategoriesComponent';
+>>>>>>> 7fd568272315ac16c1cd46e2d6d7449815e30bba
 
 class App extends React.Component {
   constructor(props) {
@@ -52,6 +58,7 @@ class App extends React.Component {
                 <h1 className="display-3">My Books</h1>
             </div>
           <div className="container">
+<<<<<<< HEAD
             <div className="row">
                 <div className="col-md-3">
           <ul>
@@ -69,6 +76,33 @@ class App extends React.Component {
                 </div>
             </div>
             </div>
+||||||| merged common ancestors
+            <ul>
+              <li><Link to="/books">Books</Link>
+              </li>
+            </ul>
+            <hr/>
+
+          <Switch>
+            <Route path="/books" component={Books} />
+          </Switch>
+
+
+          </div>
+=======
+            <ul>
+              <li><Link to="/">Categories</Link>
+              </li>
+            </ul>
+            <hr/>
+
+          <Switch>
+            <Route exact path="/" component={Categories} />
+          </Switch>
+
+
+          </div>
+>>>>>>> 7fd568272315ac16c1cd46e2d6d7449815e30bba
         </div>
       </Router>
     );
