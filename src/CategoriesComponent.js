@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 import {
     BrowserRouter as Router,
     Route,
@@ -8,28 +9,33 @@ import {
     HashRouter
   } from 'react-router-dom';
   import categories from './lib/categories';
+  import speakers from './lib/speakers';
   
 class Categories extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      categories: [] 
+      categories: [],
+      speakers: []
     }
-    console.log(this.state)
   }
   
   componentDidMount() {
     categories().then(categories => {
-      console.log('categories', categories);
-      this.setState = {
+      this.setState ({
         categories 
-      }
+      });
+    });
+    speakers().then(speakers => {
+      this.setState ({
+        speakers 
+      });
       console.log('state', this.state);
     });
   }
   render () {
     return (
-      <Router>
+      <HashRouter>
         <div>
             <div className="jumbotron">
                 <h1 className="display-3">Categories</h1>
@@ -41,26 +47,39 @@ class Categories extends React.Component {
           {
             this.state.categories.map(
               (category, i) => {
-                return <li><Link to={`/${category}`}>{category}</Link></li>;
+                return <li key={i}><Link to={`/${category}`}>{category}</Link></li>;
             })
           }
+            <ul>
+            {
+              this.state.speakers.map(
+                (speaker, i) => {
+                  return <li key={i}><Link to={`/${speaker.speakerUri}`}>{speaker.speakerName}</Link> <Button color="success">Danger!</Button></li>;
+                })
+              }
+            </ul>
           </ul>
                 </div>
                 <div className="col-md-9">
                     {/* <Route path={`${match.path}/react`} render={() => { return <h1>React by Fullstack.io book</h1> }}/> */}
-                    <Route path={`/:id`} component={Child} />
+                    <Route path={`/:id`} component={Category} />
                 </div>
             </div>
             </div>
         </div>
-      </Router>   
+      </HashRouter>   
   );
   }
     
 }
-const Child = ({ match })  => (
+const Category = ({ match })  => (
     <div>
       <h3>URL ID parameter: {match.params.id}</h3>
     </div>
+);
+const Speaker = ({ match })  => (
+  <div>
+    <h3>Speaker name: {match.params.speakerName}</h3>
+  </div>
 );
 export default Categories;

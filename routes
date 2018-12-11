@@ -6,3 +6,10 @@
 /:cats
 /404
 /
+
+//speaker url on the site
+http://api.tourostage.com/torahSpeakersDetailsPageParser/?url='
+http://apps.wearetouro.com/api/torahSubcategories/catsSubcats%7CtouroMain
+
+gets subcats and cats
+http://apps.wearetouro.com/api/torahSpeakers/touroMain
