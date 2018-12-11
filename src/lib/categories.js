@@ -13,13 +13,7 @@ export default () => {
       var categories = categoriesRepeated.filter(function(item, index){
         return categoriesRepeated.indexOf(item) >= index;
       });
+      //console.log(categories);
       return categories;
   });
 }
-
-
-
-
-
-
-
