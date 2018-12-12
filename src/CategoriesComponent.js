@@ -20,6 +20,8 @@ import {
     Redirect,
     HashRouter
   } from 'react-router-dom';
+  import Category from './CategoryComponent';
+  import Speaker from './SpeakerComponent';
   import categories from './lib/categories';
   import speakers from './lib/speakers';
   
@@ -87,12 +89,11 @@ class Categories extends React.Component {
               </Nav>
             </Collapse>
           </Navbar>
-
-                
-                <div className="col-md-9">
-                    {/* <Route path={`${match.path}/react`} render={() => { return <h1>React by Fullstack.io book</h1> }}/> */}
-                    <Route path={`/:id`} component={Category} />
-                </div>
+              <div className="col-md-12">
+                  {/* <Route path={`${match.path}/react`} render={() => { return <h1>React by Fullstack.io book</h1> }}/> */}
+                  <Route path={`/:category`} component={Category} />
+                  <Route path={`/speakers/:speaker`} component={Speaker} />
+              </div>
             </div>
 
       </HashRouter>   
@@ -100,16 +101,4 @@ class Categories extends React.Component {
   }
     
 }
-const Category = ({ match, location })  => 
-(
-    <div>
-      <h3>URL ID parameter: {match.params.id}</h3>
-    </div>
-);
-const Speaker = ({ match, location }) => 
-(
-  <div>
-    <h3>Speaker name: {match.params.speakerName}</h3>
-  </div>
-);
 export default Categories;
