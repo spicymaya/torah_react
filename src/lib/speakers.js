@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default () => {
   return fetch('http://apps.wearetouro.com/api/torahSpeakers/touroMain')
   .then((response) => {
