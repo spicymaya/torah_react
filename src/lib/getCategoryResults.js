@@ -16,4 +16,5 @@ return
   http.onreadystatechange = function() {
     console.log('test',http.responseText);
   }
+  
 }
